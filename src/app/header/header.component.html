@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <img src="../assets/img/logo_small.png" width="60">
+    
+    <ul>
+        <a routerLink="tasks">Lista</a>
+    </ul>
+    <ul>
+        <a routerLink="create">Crear</a>
+    </ul>
+    <span class="example-spacer"></span>
+    <ul>
+        <a *ngIf="!authService.isLogged()" mat-button routerLink="signup">Registrar</a>
+        <a *ngIf="!authService.isLogged()" mat-button routerLink="loguin">Iniciar sesión</a>
+        <a *ngIf="authService.isLogged()" mat-button (click)="authService.logoutUser()">Cerrar Sesión</a>
+    </ul>
+     
+</mat-toolbar>

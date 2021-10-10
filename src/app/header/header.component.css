@@ -1,0 +1,14 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+a{
+    color: azure;
+    text-decoration: none;
+}
+
+.mat-toolbar{
+  
+  /*background: linear-gradient(rgb(119, 10, 24), white);*/
+  background: linear-gradient(to left, rgb(77, 1, 1), rgb(129, 66, 66) 70%, rgb(34, 2, 2));
+}
