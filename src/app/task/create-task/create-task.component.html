@@ -9,11 +9,15 @@
                 <mat-form-field>
                     <input [(ngModel)]="createTask.description" matInput placeholder="Descripcion">
                 </mat-form-field>
+                <input type="file" (change)="onFileSelected($event)">
             </div>
         </mat-card-content>
         <mat-card-actions>
-            <button (click)="create()" class="button" mat-raised-button color="accent">Crear</button>
+            <button (click)="createUploadImage()" class="button" mat-raised-button color="accent">Crear</button>
+            <!--<button (click)="create()" class="button" mat-raised-button color="accent">Crear</button>-->
         </mat-card-actions>
     </mat-card>
 </div>
+
+
 

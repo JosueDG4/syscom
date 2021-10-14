@@ -3,6 +3,9 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import { AuthService } from '../service/auth.service';
 import { DialogExaComponent } from '../dialog-exa/dialog-exa.component';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +23,7 @@ export class SignupComponent implements OnInit {
   favoriteSeason: any;
   seasons: string[] = ['Admin', 'User'];
   
-  constructor(private auth: AuthService, public dialog: MatDialog) { }
+  constructor(private auth: AuthService, public dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) { }
   
 
   ngOnInit(): void {
@@ -34,8 +37,14 @@ export class SignupComponent implements OnInit {
         this.dialog.open(DialogExaComponent);
         console.log(res)
         localStorage.setItem('user', res.nombre);
+        this.router.navigate(["/tasks"])
       },    
-      err => console.log(err) 
+      err => {
+        console.log(err) 
+        if (err.status === 409){
+          this.snackBar.open("El usuario ya existe, coloca otro nombre de usuario","Error",{duration: 8000});
+        }
+      }
     )
   }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TaskService } from 'src/app/service/task.service';
 
 @Component({
   selector: 'app-create-task',
@@ -9,16 +11,53 @@ export class CreateTaskComponent implements OnInit {
 
   createTask={
     name: "",
-    description: ""
+    description: "",
+    usrname: localStorage.getItem("user")
   }
 
-  constructor() { }
+  public selectedFile: any = null
+
+  
+  constructor(private taskService: TaskService, private router: Router) { }
+
+  onFileSelected(event: any){
+    this.selectedFile = <File> event.target.files[0]
+  }
+
+  createUploadImage(){
+    const fd = new FormData()
+    fd.append('usrname', ""+localStorage.getItem("user"))
+    fd.append('image', this.selectedFile, this.selectedFile.name)
+    fd.append('name', this.createTask.name)
+    fd.append('description', this.createTask.description)
+
+    this.taskService.createImageUpload(fd)
+      .subscribe(
+        res => {
+          this.router.navigate(["/tasks"])
+        },
+        err => console.log(err)
+      )
+  }
 
   ngOnInit(): void {
   }
 
   create(){
-
+    this.taskService.createTask(this.createTask)
+      .subscribe(
+        res => {
+          console.log(res)
+          this.router.navigate(["/tasks"]);
+        },
+        err => console.log(err)
+      )
   }
+
+  
+
+  
+
+  
 
 }

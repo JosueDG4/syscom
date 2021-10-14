@@ -10,11 +10,13 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  /*private signUpURL = "http://localhost:8080/auth/create"
-  private loginURL = "http://localhost:8080/auth/auth"*/
+  //private signUpURL = "http://localhost:8080/auth/create"
+  //private loginURL = "http://localhost:8080/auth/auth"
   private signUpURL = "https://spring-app2-heroku.herokuapp.com/auth/create"
   private loginURL = "https://spring-app2-heroku.herokuapp.com/auth/auth"
   httpHeaders: HttpHeaders | { [header: string]: string | string[]; } | undefined;
+
+  public localUserLoggin = localStorage.getItem('user')
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -22,7 +24,6 @@ export class AuthService {
     return this.http.post<any>(this.signUpURL, user,{headers:this.httpHeaders}).pipe(
       catchError( e =>{
         console.error(e.error.mensaje);
-  
         return throwError(e);
       })
     );
@@ -37,7 +38,9 @@ export class AuthService {
   }
 
   logoutUser(){
+
     localStorage.removeItem('user')
+    localStorage.removeItem('iduser')
     this.router.navigate(['/loguin'])
   }
 }

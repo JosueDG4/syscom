@@ -26,6 +26,10 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogExaComponent } from './dialog-exa/dialog-exa.component';
 import { AuthGuard } from './guard/auth.guard';
+import { TaskService } from './service/task.service';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -54,9 +58,12 @@ import { AuthGuard } from './guard/auth.guard';
     HttpClientModule,
     MatChipsModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule,
+    MatSnackBarModule,
+    MatIconModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, TaskService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

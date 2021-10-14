@@ -11,8 +11,11 @@ export class AppComponent {
 
   constructor (public dialog : MatDialog){}
   title = 'syscom';
+  userLoggerr = localStorage.getItem('user');
   dataChild = "este mensaje es para el formulario component desde la app Component"
   message = ""
+  userLogger = localStorage.getItem("user")
+ 
 
   openDialog(){
     this.dialog.open(DialogExaComponent);
