@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TaskService } from '../../service/task.service'
 import { HttpErrorResponse } from '@angular/common/http'
 import { Router } from '@angular/router'
@@ -16,10 +16,14 @@ export class ListTaskComponent implements OnInit {
 
   constructor(private taskService: TaskService, private router: Router, private snackBar: MatSnackBar) { }
 
+  localuser : any;
+  userLogger : any;
+
   ngOnInit(){
     this.taskService.getTasks()
     .subscribe(
       res => {
+        this.localuser = localStorage.getItem("user")
         this.tasks = res;
       },
       err => console.log(err)
@@ -50,7 +54,7 @@ export class ListTaskComponent implements OnInit {
           if(index>-1){
             this.tasks.splice(index,1)  
             this.snackBar.open("Tarea Eliminada con Exito!","Otro", {
-              duration: 8000
+              duration: 3000
             })
           }
         },

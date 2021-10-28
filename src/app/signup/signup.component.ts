@@ -2,8 +2,6 @@ import { Component, ViewChild, OnInit, Inject  } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import { AuthService } from '../service/auth.service';
-import { DialogExaComponent } from '../dialog-exa/dialog-exa.component';
-import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
@@ -13,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+
+  errorRegistro = false;
 
   public signUpUser={
     'nombre': '',
@@ -34,15 +34,15 @@ export class SignupComponent implements OnInit {
     .subscribe(
       res =>{  
         this.cleanItems();
-        this.dialog.open(DialogExaComponent);
         console.log(res)
         localStorage.setItem('user', res.nombre);
         this.router.navigate(["/tasks"])
       },    
       err => {
         console.log(err) 
+        this.errorRegistro = true;
         if (err.status === 409){
-          this.snackBar.open("El usuario ya existe, coloca otro nombre de usuario","Error",{duration: 8000});
+          //this.snackBar.open("El usuario ya existe, coloca otro nombre de usuario","Error",{duration: 8000});
         }
       }
     )

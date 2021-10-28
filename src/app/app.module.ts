@@ -24,13 +24,15 @@ import { AuthService } from './service/auth.service';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
-import { DialogExaComponent } from './dialog-exa/dialog-exa.component';
 import { AuthGuard } from './guard/auth.guard';
 import { TaskService } from './service/task.service';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';
-
+import { UserloggerComponent } from './userlogger/userlogger.component';
+import { TablasComponent } from './tablas/tablas.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -41,9 +43,10 @@ import {MatIconModule} from '@angular/material/icon';
     SignupComponent,
     CreateTaskComponent,
     ListTaskComponent,
-    DialogExaComponent
+    UserloggerComponent,
+    TablasComponent
   ],
-  entryComponents: [DialogExaComponent],
+  entryComponents: [],
   imports: [
     BrowserModule,
     FormsModule,
@@ -61,7 +64,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatDialogModule,
     MatExpansionModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MatMenuModule
   ],
   providers: [AuthService, AuthGuard, TaskService],
   bootstrap: [AppComponent],

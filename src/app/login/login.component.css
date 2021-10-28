@@ -29,3 +29,9 @@ mat-card-title{
     font-size: 30px;
     font-weight: bold;
 }
+
+.errorDiv{
+    text-align-last: center;
+    color: rgb(230, 18, 18);
+    font-weight: bold;
+}

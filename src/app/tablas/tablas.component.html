@@ -1,0 +1,112 @@
+<div class="userLog"><p>Bienvenid@ {{userLogger}}</p></div>
+<div class="form">
+    <mat-card class="card">
+    <mat-card-title>Test tablas de multiplicar </mat-card-title>
+        <mat-card-content>
+            <div class="container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Selecciona la tabla para realizar el test</mat-label>
+                    <mat-select [(ngModel)]="respuestas.valorTabla" [disabled]="disableSelect.value">
+                      <mat-option value="2">Tabla 2</mat-option>
+                      <mat-option value="3">Tabla 3</mat-option>
+                      <mat-option value="4">Tabla 4</mat-option>
+                      <mat-option value="5">Tabla 5</mat-option>
+                      <mat-option value="6">Tabla 6</mat-option>
+                      <mat-option value="7">Tabla 7</mat-option>
+                      <mat-option value="8">Tabla 8</mat-option>
+                      <mat-option value="9">Tabla 9</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </mat-card-content>
+        
+        <div class="errorDiv" *ngIf="resultadoTest1">
+            Respuesta Incorrecta
+        </div> 
+        <mat-card class="example-card" *ngIf="respuestas.valorTabla.length > 0">
+            <mat-card-title-group>
+             {{respuestas.valorTabla}} X 1 = <input [(ngModel)]="respuestas.valor1" matInput placeholder="Respuesta">
+            </mat-card-title-group>
+        </mat-card>  
+        <div class="errorDiv" *ngIf="resultadoTest2">
+            Respuesta Incorrecta
+        </div>
+        <mat-card class="example-card" *ngIf="respuestas.valorTabla.length > 0">
+            <mat-card-title-group>
+                  {{respuestas.valorTabla}} X 2 = <input [(ngModel)]="respuestas.valor2" matInput placeholder="Respuesta"> 
+            </mat-card-title-group>
+        </mat-card>  
+        <div class="errorDiv" *ngIf="resultadoTest3">
+            Respuesta Incorrecta
+        </div>
+        <mat-card class="example-card" *ngIf="respuestas.valorTabla.length > 0">
+            <mat-card-title-group>
+                  {{respuestas.valorTabla}} X 3 = <input [(ngModel)]="respuestas.valor3" matInput placeholder="Respuesta"> 
+            </mat-card-title-group>
+        </mat-card>  
+        <div class="errorDiv" *ngIf="resultadoTest4">
+            Respuesta Incorrecta
+        </div>
+        <mat-card class="example-card" *ngIf="respuestas.valorTabla.length > 0">
+            <mat-card-title-group>
+                  {{respuestas.valorTabla}} X 4 = <input [(ngModel)]="respuestas.valor4" matInput placeholder="Respuesta"> 
+            </mat-card-title-group>
+        </mat-card>  
+        <div class="errorDiv" *ngIf="resultadoTest5">
+            Respuesta Incorrecta
+        </div>
+        <mat-card class="example-card" *ngIf="respuestas.valorTabla.length > 0">
+            <mat-card-title-group>
+                  {{respuestas.valorTabla}} X 5 = <input [(ngModel)]="respuestas.valor5" matInput placeholder="Respuesta"> 
+            </mat-card-title-group>
+        </mat-card>  
+        <div class="errorDiv" *ngIf="resultadoTest6">
+            Respuesta Incorrecta
+        </div>
+        <mat-card class="example-card" *ngIf="respuestas.valorTabla.length > 0">
+            <mat-card-title-group>
+                  {{respuestas.valorTabla}} X 6 = <input [(ngModel)]="respuestas.valor6" matInput placeholder="Respuesta"> 
+            </mat-card-title-group>
+        </mat-card>  
+        <div class="errorDiv" *ngIf="resultadoTest7">
+            Respuesta Incorrecta
+        </div>
+        <mat-card class="example-card" *ngIf="respuestas.valorTabla.length > 0">
+            <mat-card-title-group>
+                  {{respuestas.valorTabla}} X 7 = <input [(ngModel)]="respuestas.valor7" matInput placeholder="Respuesta"> 
+            </mat-card-title-group>
+        </mat-card> 
+        <div class="errorDiv" *ngIf="resultadoTest8">
+            Respuesta Incorrecta
+        </div> 
+        <mat-card class="example-card" *ngIf="respuestas.valorTabla.length > 0">
+            <mat-card-title-group>
+                  {{respuestas.valorTabla}} X 8 = <input [(ngModel)]="respuestas.valor8" matInput placeholder="Respuesta"> 
+            </mat-card-title-group>
+        </mat-card>  
+        <div class="errorDiv" *ngIf="resultadoTest9">
+            Respuesta Incorrecta
+        </div>
+        <mat-card class="example-card" *ngIf="respuestas.valorTabla.length > 0">
+            <mat-card-title-group>
+                  {{respuestas.valorTabla}} X 9 = <input [(ngModel)]="respuestas.valor9" matInput placeholder="Respuesta"> 
+            </mat-card-title-group>
+        </mat-card>   
+        <div class="errorDiv" *ngIf="resultadoTest10">
+            Respuesta Incorrecta
+        </div>  
+        <mat-card class="example-card" *ngIf="respuestas.valorTabla.length > 0">
+            <mat-card-title-group>
+                  {{respuestas.valorTabla}} X 10 = <input [(ngModel)]="respuestas.valor10" matInput placeholder="Respuesta"> 
+            </mat-card-title-group>
+        </mat-card> 
+        
+              
+        <mat-card-actions>
+            <button *ngIf="intentos<1" (click)="testResult()" class="button" mat-raised-button color="primary">Comprobar</button>
+            <button *ngIf="intentos==1" (click)="resetTest()" class="button" mat-raised-button color="primary">Reiniciar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+

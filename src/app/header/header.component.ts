@@ -9,17 +9,20 @@ import { AppComponent } from '../app.component';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public authService: AuthService, public appComponent: AppComponent) { }
+  constructor(public authService: AuthService, public appComponent: AppComponent) { } 
 
-  userLogger = localStorage.getItem("user");
+  userLogger: any;
+  keyuser : any;
+  key : any
+
+  usrLog = sessionStorage.getItem("user2")
+
   
 
   ngOnInit(): void {
-
+   
   }
 
-  logout(){
-
-  }
+ 
 
 }

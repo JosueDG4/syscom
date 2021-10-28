@@ -15,7 +15,8 @@ export class CreateTaskComponent implements OnInit {
     usrname: localStorage.getItem("user")
   }
 
-  public selectedFile: any = null
+  public selectedFile: any = null;
+  userLogger : any;
 
   
   constructor(private taskService: TaskService, private router: Router) { }
@@ -41,6 +42,7 @@ export class CreateTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userLogger = localStorage.getItem("user");
   }
 
   create(){

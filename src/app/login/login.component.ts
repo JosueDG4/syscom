@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -18,8 +18,11 @@ export class LoginComponent implements OnInit {
 
   constructor(private auth: AuthService, private router: Router, private snackBar: MatSnackBar) { }
 
+  @Output() childEvent = new EventEmitter();
+  errorSession = false;
+
   ngOnInit(): void {
-    this.auth.logoutUser()
+    //this.auth.logoutUser()
   }
 
   loguin(){
@@ -28,13 +31,13 @@ export class LoginComponent implements OnInit {
       res => {
         console.log(res)
         localStorage.setItem('user', res.nombre);
-        localStorage.setItem('iduser', res.idusuario);
-        //window.location.replace('/tasks');
+        sessionStorage.setItem('user2', res.nombre);
         this.router.navigate(['/tasks']);
       },
       err => {
+        this.errorSession = true;
         console.log(err)
-        this.snackBar.open("Usuario o Contraseña incorrectos","Error");
+        //this.snackBar.open("Usuario o Contraseña incorrectos","Error");
       }
     
     )

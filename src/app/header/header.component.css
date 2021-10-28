@@ -4,11 +4,13 @@
 
 a{
     color: azure;
-    text-decoration: none;
+    text-decoration: brown;
 }
 
 .mat-toolbar{
   
   /*background: linear-gradient(rgb(119, 10, 24), white);*/
-  background: linear-gradient(to left, rgb(77, 1, 1), rgb(129, 66, 66) 70%, rgb(34, 2, 2));
+  background: linear-gradient(to left, rgb(12, 1, 1), rgb(15, 1, 1) 70%, rgb(7, 1, 1));
+  size: 0%;
+  
 }

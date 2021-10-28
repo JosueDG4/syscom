@@ -16,15 +16,16 @@
                 <mat-form-field>
                     <input type="password" [(ngModel)]="signUpUser.password" matInput placeholder="Password">
                 </mat-form-field>
-                <mat-label>Roles</mat-label>
+                <!--<mat-label>Roles</mat-label>
                     <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="signUpUser.tipo">
                         <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
                             {{season}}
                         </mat-radio-button>
-                    </mat-radio-group>
+                    </mat-radio-group>-->
                 <!--<div>Your favorite season is: {{signUpUser.tipo}}</div>-->
             </div>
         </mat-card-content>
+        <div class="errorDiv" *ngIf="errorRegistro">Error al registrarse; el usuario ya existe</div>
         <mat-card-actions>
             <button (click)="signUp()" class="button" mat-raised-button color="primary">Registrar</button>
         </mat-card-actions>

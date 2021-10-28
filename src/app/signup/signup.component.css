@@ -39,3 +39,9 @@ mat-card-title{
   .example-radio-button {
     margin: 5px;
   }
+
+  .errorDiv{
+    text-align-last: center;
+    color: rgb(230, 18, 18);
+    font-weight: bold;
+}

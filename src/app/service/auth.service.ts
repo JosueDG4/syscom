@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, window } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
-
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +18,8 @@ export class AuthService {
   public localUserLoggin = localStorage.getItem('user')
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  userlogueado = sessionStorage.getItem('user2')
 
   signUpUser(user : any) {
     return this.http.post<any>(this.signUpURL, user,{headers:this.httpHeaders}).pipe(
@@ -41,7 +42,14 @@ export class AuthService {
 
     localStorage.removeItem('user')
     localStorage.removeItem('iduser')
+    sessionStorage.removeItem('user2');
+    this.userlogueado = "";
     this.router.navigate(['/loguin'])
   }
+
+  getUserLoggedIn() {
+    return [{'userLog': localStorage.getItem('user')}];
+  }
+
 }
 

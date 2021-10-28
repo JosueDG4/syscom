@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogExaComponent } from './dialog-exa/dialog-exa.component';
+import { AuthService } from './service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +9,11 @@ import { DialogExaComponent } from './dialog-exa/dialog-exa.component';
 })
 export class AppComponent {
 
-  constructor (public dialog : MatDialog){}
+  constructor (public dialog : MatDialog, public auth: AuthService){}
   title = 'syscom';
-  userLoggerr = localStorage.getItem('user');
-  dataChild = "este mensaje es para el formulario component desde la app Component"
-  message = ""
-  userLogger = localStorage.getItem("user")
+  message : any = sessionStorage.getItem('user2');
+  userLogger = localStorage.getItem("user");
  
-
   openDialog(){
-    this.dialog.open(DialogExaComponent);
   }
 }

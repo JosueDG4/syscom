@@ -1,4 +1,4 @@
-<p></p>
+<div class="userLog"><p>Bienvenid@ {{localuser}}</p></div>
 <div class="accordion_display">
     <div class="accordion_size">
         <mat-accordion multi="true" *ngIf="tasks.length">
@@ -16,7 +16,7 @@
                     {{task.description}}
                 </mat-panel-description>
                 <mat-panel-description>
-                    <img class="image_center" src={{task.imageUrl}} width="300" height="300">
+                    <!--<img class="image_center" src={{task.imageUrl}} width="300" height="300">-->
                 </mat-panel-description>
                 <mat-action-row>
                     <button class="btSelectTodo" mat-button (click)="changeStatus(task, 'Hacer')">Hacer</button>

@@ -11,6 +11,9 @@
                 </mat-form-field>
             </div>
         </mat-card-content>
+        <div class="errorDiv" *ngIf="errorSession">
+            Usuario o Contraseña incorrectos
+        </div>
         <mat-card-actions>
             <button (click)="loguin()" class="button" mat-raised-button color="primary">Ingresar</button>
         </mat-card-actions>
