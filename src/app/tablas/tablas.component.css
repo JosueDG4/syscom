@@ -20,7 +20,7 @@
 
 mat-card-title{
     color: rgb(3, 3, 53);
-    font-size: 25px;
+    font-size: 22px;
     font-weight: bold;
     margin-left: 0px;
     text-align: center;
@@ -28,7 +28,7 @@ mat-card-title{
 
 mat-card-title-group{
     color:rgb(4, 15, 117);
-    font-size: 25px;
+    font-size: 18px;
     font-weight: bold;
     justify-content: center;
 }
@@ -40,7 +40,7 @@ input{
 
 .example-card {
   max-width: 400px;
-  margin-bottom: 8px;
+  margin-bottom: 1px;
 }
 
 .errorDiv{
@@ -55,7 +55,7 @@ input{
 
 .userLog{
     text-align: right;
-    margin-right: 30px;
-    font-size: 20px;
+    margin-right: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
